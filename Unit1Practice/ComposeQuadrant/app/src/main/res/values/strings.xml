@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ComposeQuadrant</string>
+    <string name="first_title">Text composable</string>
+    <string name="second_title">Image composable</string>
+    <string name="third_title">Row composabl</string>
+    <string name="fourth_title">Column composable</string>
+</resources>

@@ -1,37 +1,41 @@
-package com.example.composearticle
+package com.example.taskmanager
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.composearticle.ui.theme.ComposeArticleTheme
+import com.example.taskmanager.ui.theme.TaskManagerTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposeArticleTheme {
+            TaskManagerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ComposeArticleApp()
+                    TaskManager()
                 }
             }
         }
@@ -39,51 +43,48 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ComposeArticleApp(){
+fun TaskManager() {
     Greeting(
-        stringResource(R.string.title),
-        stringResource(R.string.short_desc),
-        stringResource(R.string.long_desc),
-        painterResource(R.drawable.bg_compose_background)
+        stringResource(R.string.all_task_completed),
+        stringResource(R.string.nice_work),
+        painterResource(R.drawable.ic_task_completed)
     )
 }
 
 @Composable
-fun Greeting(
-    string: String,
-    string2: String,
-    string3: String,
-    imagePainter: Painter,
-    modifier: Modifier = Modifier
-) {
-    Column(modifier=modifier) {
+fun Greeting(string1: String, string2: String, painter: Painter,modifier: Modifier = Modifier) {
+    Column(
+        modifier=modifier.fillMaxWidth().fillMaxHeight(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Image(
-            painter=imagePainter,
+            painter = painter,
             contentDescription = null
         )
         Text(
-            text = string,
-            fontSize = 24.sp,
-            modifier = modifier.padding(16.dp)
-        )
-        Text(
-            text = string2,
-            textAlign = TextAlign.Justify,
+            text = string1,
+            fontWeight = FontWeight.Bold,
             modifier = modifier.padding(
-                start = 16.dp,
-                end = 16.dp
+                top = 24.dp,
+                bottom = 8.dp
             )
         )
         Text(
-            text = string3,
-            textAlign = TextAlign.Justify,
-            modifier = modifier.padding(16.dp)
+            text = string2,
+            fontSize = 16.sp,
+            modifier = modifier
         )
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true
+)
 @Composable
 fun GreetingPreview() {
-    ComposeArticleApp()
+    TaskManagerTheme {
+        TaskManager()
+    }
 }
