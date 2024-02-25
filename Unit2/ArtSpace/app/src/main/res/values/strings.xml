@@ -2,4 +2,6 @@
     <string name="app_name">ArtSpace</string>
     <string name="artwork_title_1">Artwork Title 1</string>
     <string name="artwork_artist_and_year_1">Artwork Artist and Year 1</string>
+    <string name="artwork_title_2">Artwork Title 2</string>
+    <string name="artwork_artist_and_year_2">Artwork Artist and Year 2</string>
 </resources>
