@@ -39,10 +39,10 @@ class GameViewModel : ViewModel() {
 
     private fun shuffleCurrentWord(word: String): String {
         val tempWord = word.toCharArray()
-        tempWord.shuffle()
-        while (String(tempWord).equals(word)) {
+//        tempWord.shuffle()
+        do{
             tempWord.shuffle()
-        }
+        } while  (String(tempWord).equals(word))
         return String(tempWord)
     }
 
