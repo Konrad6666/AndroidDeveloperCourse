@@ -94,7 +94,7 @@ fun CupcakeApp(
     navController: NavHostController = rememberNavController()
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
-    val currentScreen= CupcakeScreen.valueOf(
+    val currentScreen = CupcakeScreen.valueOf(
         backStackEntry?.destination?.route ?: CupcakeScreen.Start.name
     )
 
@@ -177,8 +177,8 @@ private fun cancelOrderAndNavigateToStart(
 }
 
 private fun shareOrder(context: Context, subject: String, summary: String) {
-    val intent= Intent(Intent.ACTION_SEND).apply {
-        type="text/plain"
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
         putExtra(Intent.EXTRA_SUBJECT, subject)
         putExtra(Intent.EXTRA_TEXT, summary)
     }
